@@ -14,18 +14,19 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class UtilityBelt extends CustomRelic implements PostDrawSubscriber {
     public static final String ID = "UtilityBelt";
     private static final String IMG = "img/relics/UtilityBelt.png";
-    
+    private static final String OUTLINE = "img/relics/outline/UtilityBelt.png";
+
     private boolean firstTurn = false;
     
     public UtilityBelt() {
-        super(ID, new Texture(Gdx.files.internal(IMG)), RelicTier.COMMON, LandingSound.CLINK);
+        super(ID, new Texture(Gdx.files.internal(IMG)), new Texture(Gdx.files.internal(OUTLINE)), RelicTier.COMMON, LandingSound.CLINK);
         BaseMod.subscribeToPostDraw(this);
     } 
 
     @Override
     public void receivePostDraw(AbstractCard c) {
         if (firstTurn && AbstractDungeon.player.relics.indexOf(this) != -1) {
-            if (c.isInnate) {
+            if (c.isInnate || c.inBottleFlame || c.inBottleLightning || c.inBottleTornado) {
                 flash();
                 AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
                 AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, 1));

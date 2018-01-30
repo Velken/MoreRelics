@@ -55,8 +55,15 @@ Trello: https://trello.com/b/UqKOom9E/morerelics
 * Add Extremely Heavy Hammer
 * Add Brain of Insanity
 
+#### v1.1.1 ####
+* Add images for all relics (Velken)
+
+#### v1.1.2 ####
+* Buff Utility Belt: Now also works on bottled cards
+
 ## Contributors ##
 * t-larson - Mod development
 * StreptoFire - Relic design
 * cogumush - Relic design
 * fiiiiilth - Relic design
+* Velken - Relic images
